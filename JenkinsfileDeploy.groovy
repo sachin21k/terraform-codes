@@ -9,18 +9,23 @@ pipeline {
         ENV = 'dev'
         REGION = "us-east-1"
         projectName = 'AW_TableauDeployment'
-        urlPrefix = ''
-        projectUrl = "${urlPrefix}/TableauServer-deployment-HA.git"
+        /*urlPrefix = ''
+       projectUrl = "${urlPrefix}/TableauServer-deployment-HA.git"
+       */
     }
 
     stages {
         stage('Docker login') {
             agent none
             steps {
+                echo " =========== ~~~~~~~~~~~~ ============ "    
                 sh '$(aws ecr get-login --no-include-email --region $REGION)'
             }
         }
         stage('Deployment') {
               print("allgood")
             }
-    }       
+        stage('three---'){
+                echo " =========== ^^^^^^^^^^^^ Reading config via Python... "
+            }       
+    }
